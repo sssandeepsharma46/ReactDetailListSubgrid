@@ -1,0 +1,57 @@
+.pcf-container {
+    font-family: Arial, sans-serif;
+    padding: 10px;
+    width: 100%; /* Ensures the container spans the full width */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Ensures proper spacing */
+}
+
+.search-box {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Prevents overflow issues */
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th, .data-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.data-table th {
+    background-color: #0078D7;
+    color: white;
+    cursor: pointer;
+}
+
+.data-table th:hover {
+    background-color: #005A9E;
+}
+
+.pagination {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.pagination button {
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    background-color: #0078D7;
+    color: white;
+}
+
+.pagination button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}

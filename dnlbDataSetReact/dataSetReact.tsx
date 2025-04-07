@@ -91,41 +91,38 @@ export class dnlbDataSet extends React.Component<
     }));
   }
 
-
   private onColumnClick = (
     _event: React.MouseEvent<HTMLElement>,
     column: IColumn
   ) => {
     const { items, sortedColumnKey, isSortedDescending } = this.state;
-
-    // Toggle sorting order if clicking the same column, otherwise default to ascending
+  
     const newIsSortedDescending =
       sortedColumnKey === column.key ? !isSortedDescending : false;
-
-    // Sort the items based on the clicked column
+  
+    const fieldName = column.fieldName!;
+  
     const sortedItems = [...items].sort((a, b) => {
-      const fieldName = column.fieldName!;
-
       const getValueAsString = (value: unknown): string => {
         if (typeof value === "string" || typeof value === "number") {
           return String(value).toLowerCase();
         }
         return "";
       };
-
+  
       const valueA = getValueAsString(a[fieldName]);
       const valueB = getValueAsString(b[fieldName]);
-
+  
       return newIsSortedDescending
-        ? valueB.localeCompare(valueA) // Descending order
-        : valueA.localeCompare(valueB); // Ascending order
+        ? valueB.localeCompare(valueA)
+        : valueA.localeCompare(valueB);
     });
-
-    // Update state with new sorting data
+  
     this.setState({
       items: sortedItems,
-      sortedColumnKey: column.key, // Store which column is sorted
-      isSortedDescending: newIsSortedDescending, // Toggle order
+      filteredItems: sortedItems, // ✅ Update filteredItems too
+      sortedColumnKey: column.key,
+      isSortedDescending: newIsSortedDescending,
     });
   };
 

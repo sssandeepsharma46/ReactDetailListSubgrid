@@ -36,22 +36,3 @@
     background-color: #005A9E;
 }
 
-.pagination {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.pagination button {
-    padding: 5px 10px;
-    cursor: pointer;
-    border: none;
-    background-color: #0078D7;
-    color: white;
-}
-
-.pagination button:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-}
